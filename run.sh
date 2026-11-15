@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Run the whole benchmark: data, reference model, metrics and figures.
+# Run the whole benchmark: data, reference model, metrics and optional figures.
 
 set -e
 cd "$(dirname "$0")"
@@ -15,10 +15,13 @@ fi
 # 2. Model and training. Replace these scripts to test your own surrogate model.
 python3 model_and_training/train.py
 python3 model_and_training/predict.py
-python3 model_and_training/plot_losses.py
 
-# 3. Metrics and figures of the predictions saved in the results folder.
+# 3. Metrics of the predictions saved in the results folder.
 python3 src/metrics/compute_metrics.py
+
+# 4. Figures (optional). They are not part of the assessment in the Kaggle challenge:
+#    they only help to interpret the results. This step can be removed.
+python3 model_and_training/plot_losses.py
 python3 src/plots/plot_reference_fields.py
 python3 src/plots/plot_error_boxplot.py
 python3 src/plots/plot_error_in_time.py

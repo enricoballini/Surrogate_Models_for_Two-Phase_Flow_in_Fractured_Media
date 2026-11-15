@@ -78,7 +78,8 @@ Install the packages and run all the steps from the main folder of the repositor
 
 `run.sh` trains the reference model, saves its predictions, computes the metrics and
 makes the figures. Everything is written in the `results` folder. The training takes
-about three minutes on a laptop GPU.
+about three minutes on a laptop GPU. The figures are optional: they are not part of the
+assessment, they only help to interpret the results.
 
 To run a single script, set `PYTHONPATH` to the main folder first:
 
@@ -123,9 +124,13 @@ Save the predictions of your model for the inputs of a split:
     inputs, _ = load_samples("validation")
     save_predictions("validation", my_model(inputs))
 
-Then compute the metrics and make the figures, which do not depend on the model:
+Then compute the metrics, which do not depend on the model:
 
     python3 src/metrics/compute_metrics.py
+
+Optionally, make the figures. They are not part of the assessment, they only help to
+interpret the results:
+
     python3 src/plots/plot_error_boxplot.py
     python3 src/plots/plot_error_in_time.py
     python3 src/plots/plot_fields_on_mesh.py
@@ -172,7 +177,7 @@ saturation and from 3% to 13% for the pressure.
     model_and_training/   reference model (DRE), its training and its predictions
     src/data/             data reading for NumPy, PyTorch and JAX users
     src/metrics/          metrics of the predictions
-    src/plots/            figures
+    src/plots/            optional figures
     metrics.md            definition of the metrics
     run.sh                runs everything
 
