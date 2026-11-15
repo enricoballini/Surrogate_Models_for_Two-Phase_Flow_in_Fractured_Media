@@ -1,0 +1,7 @@
+# not public: hidden test set and original simulation files
+data/test.h5
+data/raw/
+
+# generated
+results/
+__pycache__/

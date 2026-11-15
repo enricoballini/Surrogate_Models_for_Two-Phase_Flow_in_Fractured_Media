@@ -1,0 +1,8 @@
+numpy
+h5py
+matplotlib
+jax  # jax[cuda12] to train on a GPU
+optax
+
+# only for PyTorch users (src/data/torch_dataset.py):
+# torch
