@@ -78,9 +78,10 @@ repository:
     ./run.sh
 
 `install.sh` creates a virtual environment in the `.venv` folder and installs the
-packages of `requirements.txt` in it. `run.sh` activates this environment by itself.
-The code has been tested on Ubuntu 26.04.1 LTS (Linux kernel 7.0.0, x86_64) with
-Python 3.14.4.
+packages of `requirements.txt` in it. When `nvidia-smi` finds an NVIDIA GPU, it also
+installs the CUDA version of jax (about 3 GB), so that the training runs on the GPU.
+`run.sh` activates this environment by itself. The code has been tested on Ubuntu
+26.04.1 LTS (Linux kernel 7.0.0, x86_64) with Python 3.14.4.
 
 `run.sh` trains the reference model, saves its predictions, computes the metrics and
 makes the figures. Everything is written in the `results` folder. The training takes
