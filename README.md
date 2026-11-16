@@ -71,24 +71,26 @@ challenge at <https://www.kaggle.com/organizations/sciml-geobench/competitions>.
 
 ## Run
 
-Create the Python environment, activate it and run all the steps from the main folder
-of the repository:
+Create the Python environment and run all the steps from the main folder of the
+repository:
 
     ./install.sh
-    source .venv/bin/activate
     ./run.sh
 
 `install.sh` creates a virtual environment in the `.venv` folder and installs the
-packages of `requirements.txt` in it. The code has been tested on Ubuntu 26.04.1 LTS
-(Linux kernel 7.0.0, x86_64) with Python 3.14.4.
+packages of `requirements.txt` in it. `run.sh` activates this environment by itself.
+The code has been tested on Ubuntu 26.04.1 LTS (Linux kernel 7.0.0, x86_64) with
+Python 3.14.4.
 
 `run.sh` trains the reference model, saves its predictions, computes the metrics and
 makes the figures. Everything is written in the `results` folder. The training takes
 about three minutes on a laptop GPU. The figures are optional: they are not part of the
 assessment, they only help to interpret the results.
 
-To run a single script, set `PYTHONPATH` to the main folder first:
+To run a single script, activate the environment and set `PYTHONPATH` to the main
+folder first:
 
+    source .venv/bin/activate
     export PYTHONPATH=$PWD
     python3 model_and_training/train.py
 

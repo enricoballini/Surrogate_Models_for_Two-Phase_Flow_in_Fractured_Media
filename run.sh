@@ -6,6 +6,11 @@ cd "$(dirname "$0")"
 export PYTHONPATH="$PWD"
 mkdir -p results
 
+# Python environment created by install.sh, used if it exists.
+if [ -f .venv/bin/activate ]; then
+    source .venv/bin/activate
+fi
+
 # 1. Data. The HDF5 files are part of the repository: they are extracted from the
 #    original simulation files, which are not public, only if they are missing.
 if [ ! -f data/train.h5 ]; then
