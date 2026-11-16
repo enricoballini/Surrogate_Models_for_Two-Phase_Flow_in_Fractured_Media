@@ -71,10 +71,15 @@ challenge at <https://www.kaggle.com/organizations/sciml-geobench/competitions>.
 
 ## Run
 
-Install the packages and run all the steps from the main folder of the repository:
+Create the Python environment, activate it and run all the steps from the main folder
+of the repository:
 
-    pip install -r requirements.txt
+    ./install.sh
+    source .venv/bin/activate
     ./run.sh
+
+`install.sh` creates a virtual environment in the `.venv` folder and installs the
+packages of `requirements.txt` in it.
 
 `run.sh` trains the reference model, saves its predictions, computes the metrics and
 makes the figures. Everything is written in the `results` folder. The training takes
@@ -179,6 +184,7 @@ saturation and from 3% to 13% for the pressure.
     src/metrics/          metrics of the predictions
     src/plots/            optional figures
     metrics.md            definition of the metrics
+    install.sh            creates the Python environment
     run.sh                runs everything
 
 `src/data/extract_data.py` creates the HDF5 files from the original simulation files,
