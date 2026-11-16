@@ -79,7 +79,8 @@ of the repository:
     ./run.sh
 
 `install.sh` creates a virtual environment in the `.venv` folder and installs the
-packages of `requirements.txt` in it.
+packages of `requirements.txt` in it. The code has been tested on Ubuntu 26.04.1 LTS
+(Linux kernel 7.0.0, x86_64) with Python 3.14.4.
 
 `run.sh` trains the reference model, saves its predictions, computes the metrics and
 makes the figures. Everything is written in the `results` folder. The training takes
